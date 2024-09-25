@@ -6,14 +6,16 @@
  * множествами
  * @version 0.1
  * @date 2024-09-25
- * 
+ *
  * @copyright Copyright (c) 2024
- * 
+ *
  */
 
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
 #include "libsets.h"
+#include <stdio.h>
+#include <sys/types.h>
 #endif
 
 /**
@@ -21,7 +23,7 @@
  * @author BusterDaemon
  * @details Функция выделяет память под новый элемент множества,
  * записывает в него значение элемента и возвращает адрес на этот элемент.
- * Если память выделить не удалось тогда функция возвращает нулевой 
+ * Если память выделить не удалось тогда функция возвращает нулевой
  * указатель и сообщает об этом.
  * @param num Значение элемента множества
  * @return Sets* Указатель на множество/элемент множества
@@ -127,4 +129,35 @@ int Size(Sets **tail) {
   }
 
   return size;
+}
+
+/**
+ * @brief Получение значения определенного элемента
+ * @author BusterDaemon
+ * @details Функция проходит по всему списку и возвращает
+ * значение элемента на указанной позиции. Если множество
+ * пустое то выводится соответствующее сообщение и возвращается нуль.
+ * В случае если указана позиция больше размера множества возвращается
+ * значение головы множества (первого добавленного элемента).
+ * @param tail Указатель на множество
+ * @param position Позиция элемента
+ * @return int Значение элемента множества
+ */
+int GetElem(Sets **tail, uint position) {
+  if (*tail == NULL) {
+    perror("Set is empty");
+    return 0;
+  }
+
+  Sets *current = *tail;
+  uint curpos = 0;
+
+  while (current->next != NULL) {
+    if (curpos == position || current->next == NULL)
+      break;
+    current = current->next;
+    curpos++;
+  }
+
+  return current->num;
 }
