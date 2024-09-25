@@ -1,3 +1,18 @@
+/**
+ * @mainpage LibSets
+ */
+
+/**
+ * @file libsets.c
+ * @author BusterDaemon (bugsbunnygdi@pm.me)
+ * @brief Реализация библиотеки для работы со множествами
+ * @version 0.1
+ * @date 2024-09-25
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
 #include "libsets.h"
@@ -6,6 +21,16 @@
 #include <stdlib.h>
 #endif
 
+/**
+ * @brief Создаёт новое множество с единственным элементом
+ * @author Buster Daemon
+ * @details Функция выделяет память под новый элемент множества,
+ * записывает в него значение элемента и возвращает адрес на этот элемент.
+ * Если память выделить не удалось тогда функция возвращает нулевой 
+ * указатель и сообщает об этом.
+ * @param num Значение элемента множества
+ * @return Sets* Указатель на множество/элемент множества
+ */
 Sets *New(int64_t num) {
   Sets *set;
   if ((set = (Sets *)malloc(sizeof(Sets))) == NULL) {
@@ -18,6 +43,15 @@ Sets *New(int64_t num) {
   return set;
 }
 
+/**
+ * @brief Добавление нового элемента
+ * @author BusterDaemon
+ * @details Добавляет новый элемент к существующему множеству.
+ * Если множество оказывается пустым (не содержит элементов), тогда
+ * новый элемент является указателем на это самое множество.
+ * @param tail Указатель на множество
+ * @param num Значение нового элемента
+ */
 void Push(Sets **tail, int64_t num) {
   if (*tail == NULL) {
     *tail = New(num);
@@ -30,6 +64,15 @@ void Push(Sets **tail, int64_t num) {
   *tail = new;
 }
 
+/**
+ * @brief Удаляет первый элемент (голову) множества.
+ * @author BusterDaemon
+ * @details Удаляет голову множества, однако если множество
+ * пустое тогда появляется соответствующее сообщение. В обратном
+ * случае функция доходит до головы и удаляет её, делая головой
+ * предыдущий элемент от удаляемого.
+ * @param tail Указатель на множество
+ */
 void Pop(Sets **tail) {
   if (*tail == NULL) {
     perror("Set is empty");
@@ -38,15 +81,25 @@ void Pop(Sets **tail) {
 
   Sets *current = *tail;
   Sets *prev = NULL;
-  do {
+  while (current->next != NULL) {
     prev = current;
     current = current->next;
-  } while (current->next != NULL);
+  }
 
   free(current);
-  prev->next = NULL;
+  if (prev != NULL) {
+    prev->next = NULL;
+    return;
+  }
+
+  *tail = NULL;
 }
 
+/**
+ * @brief Вывод всего множества
+ * @author BusterDaemon
+ * @param tail Указатель на множество
+ */
 void PrintAll(Sets **tail) {
   if (*tail == NULL) {
     perror("Set is empty");
