@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['c_0',['Библиотека для работы со множествами на языке C',['../md_README.html#autotoc_md1',1,'']]]
+  ['libsets_2ec_0',['libsets.c',['../libsets_8c.html',1,'']]],
+  ['libsets_2eh_1',['libsets.h',['../libsets_8h.html',1,'']]]
 ];
