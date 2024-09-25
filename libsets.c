@@ -2,6 +2,8 @@
  * @file libsets.c
  * @author BusterDaemon (bugsbunnygdi@pm.me)
  * @brief Реализация библиотеки для работы со множествами
+ * @details Содержит реализацию работы библиотеки для операций над
+ * множествами
  * @version 0.1
  * @date 2024-09-25
  * 
