@@ -1,8 +1,4 @@
 /**
- * @mainpage LibSets
- */
-
-/**
  * @file libsets.c
  * @author BusterDaemon (bugsbunnygdi@pm.me)
  * @brief Реализация библиотеки для работы со множествами
@@ -16,14 +12,11 @@
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
 #include "libsets.h"
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
 #endif
 
 /**
  * @brief Создаёт новое множество с единственным элементом
- * @author Buster Daemon
+ * @author BusterDaemon
  * @details Функция выделяет память под новый элемент множества,
  * записывает в него значение элемента и возвращает адрес на этот элемент.
  * Если память выделить не удалось тогда функция возвращает нулевой 
@@ -114,4 +107,22 @@ void PrintAll(Sets **tail) {
       printf(", ");
   } while (current != NULL);
   putc('\n', stdout);
+}
+
+/**
+ * @brief Определение количества элементов (размера) множества
+ * @author BusterDaemon
+ * @param tail Указатель на множество
+ * @return int Количество элементов (размер) множества
+ */
+int Size(Sets **tail) {
+  int size = 0;
+
+  Sets *current = *tail;
+  while (current != NULL) {
+    size++;
+    current = current->next;
+  }
+
+  return size;
 }
