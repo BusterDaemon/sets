@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_0',['new',['../libsets_8c.html#aa65e987d96f6503fa087cf8d4137378f',1,'New(int64_t num):&#160;libsets.c'],['../libsets_8h.html#aa65e987d96f6503fa087cf8d4137378f',1,'New(int64_t num):&#160;libsets.c']]]
+  ['isexist_0',['isexist',['../libsets_8c.html#ad55b214b6fb54ba441ade1c8880a7a4d',1,'IsExist(Sets **tail, int64_t num):&#160;libsets.c'],['../libsets_8h.html#ad55b214b6fb54ba441ade1c8880a7a4d',1,'IsExist(Sets **tail, int64_t num):&#160;libsets.c']]]
 ];

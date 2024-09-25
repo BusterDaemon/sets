@@ -30,3 +30,4 @@ void Pop(Sets **tail);
 void PrintAll(Sets **tail);
 int Size(Sets **tail);
 int GetElem(Sets **tail, uint position);
+int IsExist(Sets **tail, int64_t num);
