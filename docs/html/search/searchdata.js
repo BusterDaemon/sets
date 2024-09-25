@@ -1,12 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "clnpsбдмнрся",
+  0: "lnps",
   1: "s",
   2: "l",
   3: "nps",
   4: "n",
-  5: "s",
-  6: "l"
+  5: "s"
 };
 
 var indexSectionNames =
@@ -16,8 +15,7 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "typedefs",
-  6: "pages"
+  5: "typedefs"
 };
 
 var indexSectionLabels =
@@ -27,7 +25,6 @@ var indexSectionLabels =
   2: "Файлы",
   3: "Функции",
   4: "Переменные",
-  5: "Определения типов",
-  6: "Страницы"
+  5: "Определения типов"
 };
 
