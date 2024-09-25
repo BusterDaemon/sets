@@ -1,7 +1,7 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "LibSets"
 PROJECT_NUMBER         = 0.1
-PROJECT_BRIEF          = "Библиотека позволяющая работать со множествами"
+PROJECT_BRIEF          = "Библиотека для работы со множествами"
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
