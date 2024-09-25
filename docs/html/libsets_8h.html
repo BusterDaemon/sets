@@ -104,16 +104,16 @@ $(function() {
 <tr class="memdesc:aa65e987d96f6503fa087cf8d4137378f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создаёт новое множество с единственным элементом  <br /></td></tr>
 <tr class="separator:aa65e987d96f6503fa087cf8d4137378f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1157ddd8f36598887a2d8ab735a78fd" id="r_ae1157ddd8f36598887a2d8ab735a78fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#ae1157ddd8f36598887a2d8ab735a78fd">Push</a> (<a class="el" href="structSets.html">Sets</a> **tail, int64_t num)</td></tr>
-<tr class="memdesc:ae1157ddd8f36598887a2d8ab735a78fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет новый элемент множества  <br /></td></tr>
+<tr class="memdesc:ae1157ddd8f36598887a2d8ab735a78fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление нового элемента  <br /></td></tr>
 <tr class="separator:ae1157ddd8f36598887a2d8ab735a78fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a830f740cf70eaa6d07453943c623d014" id="r_a830f740cf70eaa6d07453943c623d014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#a830f740cf70eaa6d07453943c623d014">Pop</a> (<a class="el" href="structSets.html">Sets</a> **tail)</td></tr>
-<tr class="memdesc:a830f740cf70eaa6d07453943c623d014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаляет последний элемент из множества  <br /></td></tr>
+<tr class="memdesc:a830f740cf70eaa6d07453943c623d014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаляет первый элемент (голову) множества.  <br /></td></tr>
 <tr class="separator:a830f740cf70eaa6d07453943c623d014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee7807b9753144be3131cc2f3ab1b5af" id="r_aee7807b9753144be3131cc2f3ab1b5af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#aee7807b9753144be3131cc2f3ab1b5af">PrintAll</a> (<a class="el" href="structSets.html">Sets</a> **tail)</td></tr>
-<tr class="memdesc:aee7807b9753144be3131cc2f3ab1b5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выводит все элементы множества  <br /></td></tr>
+<tr class="memdesc:aee7807b9753144be3131cc2f3ab1b5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод всего множества  <br /></td></tr>
 <tr class="separator:aee7807b9753144be3131cc2f3ab1b5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f421903948c09b8c2933abfad50bd7b" id="r_a3f421903948c09b8c2933abfad50bd7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#a3f421903948c09b8c2933abfad50bd7b">Size</a> (<a class="el" href="structSets.html">Sets</a> **tail)</td></tr>
-<tr class="memdesc:a3f421903948c09b8c2933abfad50bd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определяет количество элементов (размер) множества  <br /></td></tr>
+<tr class="memdesc:a3f421903948c09b8c2933abfad50bd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определение количества элементов (размера) множества  <br /></td></tr>
 <tr class="separator:a3f421903948c09b8c2933abfad50bd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
@@ -158,14 +158,6 @@ $(function() {
 </div><div class="memdoc">
 
 <p>Создаёт новое множество с единственным элементом </p>
-<dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>Значение первого элемента множества </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Sets* Указатель на множество</dd></dl>
 <dl class="section author"><dt>Автор</dt><dd>BusterDaemon</dd></dl>
 <p>Функция выделяет память под новый элемент множества, записывает в него значение элемента и возвращает адрес на этот элемент. Если память выделить не удалось тогда функция возвращает нулевой указатель и сообщает об этом. </p><dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
@@ -193,15 +185,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Удаляет последний элемент из множества </p>
-<dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tail</td><td>Указатель на множество</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Удаляет последний элемент из множества</p>
+<p>Удаляет первый элемент (голову) множества. </p>
 <dl class="section author"><dt>Автор</dt><dd>BusterDaemon</dd></dl>
 <p>Удаляет голову множества, однако если множество пустое тогда появляется соответствующее сообщение. В обратном случае функция доходит до головы и удаляет её, делая головой предыдущий элемент от удаляемого. </p><dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
@@ -228,15 +212,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Выводит все элементы множества </p>
-<dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tail</td><td>Указатель на множество</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Выводит все элементы множества</p>
+<p>Вывод всего множества </p>
 <dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
@@ -273,16 +249,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Добавляет новый элемент множества </p>
-<dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tail</td><td>Указатель на множество </td></tr>
-    <tr><td class="paramname">num</td><td>Значение нового элемента</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Добавляет новый элемент множества</p>
+<p>Добавление нового элемента </p>
 <dl class="section author"><dt>Автор</dt><dd>BusterDaemon</dd></dl>
 <p>Добавляет новый элемент к существующему множеству. Если множество оказывается пустым (не содержит элементов), тогда новый элемент является указателем на это самое множество. </p><dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
@@ -310,16 +277,7 @@ $(function() {
       </table>
 </div><div class="memdoc">
 
-<p>Определяет количество элементов (размер) множества </p>
-<dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tail</td><td>Указатель на множество </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>int Количество элементов (размер) множества</dd></dl>
-<p>Определяет количество элементов (размер) множества</p>
+<p>Определение количества элементов (размера) множества </p>
 <dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
