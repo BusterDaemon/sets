@@ -1,8 +1,4 @@
 /**
- * @mainpage LibSets
- */
-
-/**
  * @file libsets.c
  * @author BusterDaemon (bugsbunnygdi@pm.me)
  * @brief Реализация библиотеки для работы со множествами
@@ -111,4 +107,22 @@ void PrintAll(Sets **tail) {
       printf(", ");
   } while (current != NULL);
   putc('\n', stdout);
+}
+
+/**
+ * @brief Определение количества элементов (размера) множества
+ * @author BusterDaemon
+ * @param tail Указатель на множество
+ * @return int Количество элементов (размер) множества
+ */
+int Size(Sets **tail) {
+  int size = 0;
+
+  Sets *current = *tail;
+  while (current != NULL) {
+    size++;
+    current = current->next;
+  }
+
+  return size;
 }

@@ -80,9 +80,6 @@ $(function() {
 <p>Реализация библиотеки для работы со множествами  
 <a href="#details">Подробнее...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="libsets_8h_source.html">libsets.h</a>&quot;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Функции</h2></td></tr>
@@ -98,6 +95,9 @@ $(function() {
 <tr class="memitem:aee7807b9753144be3131cc2f3ab1b5af" id="r_aee7807b9753144be3131cc2f3ab1b5af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8c.html#aee7807b9753144be3131cc2f3ab1b5af">PrintAll</a> (<a class="el" href="structSets.html">Sets</a> **tail)</td></tr>
 <tr class="memdesc:aee7807b9753144be3131cc2f3ab1b5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вывод всего множества  <br /></td></tr>
 <tr class="separator:aee7807b9753144be3131cc2f3ab1b5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f421903948c09b8c2933abfad50bd7b" id="r_a3f421903948c09b8c2933abfad50bd7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8c.html#a3f421903948c09b8c2933abfad50bd7b">Size</a> (<a class="el" href="structSets.html">Sets</a> **tail)</td></tr>
+<tr class="memdesc:a3f421903948c09b8c2933abfad50bd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определение количества элементов (размера) множества  <br /></td></tr>
+<tr class="separator:a3f421903948c09b8c2933abfad50bd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Реализация библиотеки для работы со множествами </p>
@@ -226,6 +226,35 @@ $(function() {
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a3f421903948c09b8c2933abfad50bd7b" name="a3f421903948c09b8c2933abfad50bd7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f421903948c09b8c2933abfad50bd7b">&#9670;&#160;</a></span>Size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>tail</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Определение количества элементов (размера) множества </p>
+<p>Определяет количество элементов (размер) множества</p>
+<dl class="section author"><dt>Автор</dt><dd>BusterDaemon </dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tail</td><td>Указатель на множество </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int Количество элементов (размер) множества </dd></dl>
 
 </div>
 </div>

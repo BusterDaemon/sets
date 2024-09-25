@@ -53,3 +53,11 @@ void Pop(Sets **tail);
  * @param tail Указатель на множество
  */
 void PrintAll(Sets **tail);
+
+/**
+ * @brief Определяет количество элементов (размер) множества
+ * @author BusterDaemon
+ * @param tail Указатель на множество
+ * @return int Количество элементов (размер) множества
+ */
+int Size(Sets **tail);
