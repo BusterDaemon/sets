@@ -15,7 +15,6 @@
 #define _LIBSETS_H
 #include "libsets.h"
 #include <stdio.h>
-#include <sys/types.h>
 #endif
 
 /**
@@ -160,4 +159,31 @@ int GetElem(Sets **tail, uint position) {
   }
 
   return current->num;
+}
+
+/**
+ * @brief Проверяет существование элемента с указанным значением
+ * @author BusterDaemon
+ * @details Проходит по всему множеству и проверяет существование
+ * элемента с указанным значением. Если элемент существует возвращает 1,
+ * в противном случае 0. Если множество пустое возвращает 0 и соответствующее
+ * сообщение.
+ * @param tail Указатель на множество
+ * @param num Значение существование которого проверяется
+ * @return int Статус существования элемента с нужным значением
+ */
+int IsExist(Sets **tail, int64_t num) {
+  if (*tail == NULL) {
+    perror("Set is empty");
+    return 0;
+  }
+
+  Sets *current = *tail;
+  while (current->next != NULL) {
+    if (current->num == num)
+      return 1;
+    current = current->next;
+  }
+
+  return 0;
 }
