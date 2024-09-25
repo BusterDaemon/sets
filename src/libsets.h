@@ -29,3 +29,4 @@ void Push(Sets **tail, int64_t num);
 void Pop(Sets **tail);
 void PrintAll(Sets **tail);
 int Size(Sets **tail);
+int GetElem(Sets **tail, uint position);
