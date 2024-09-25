@@ -14,7 +14,6 @@
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
 #include "libsets.h"
-#include <stdio.h>
 #endif
 
 /**
