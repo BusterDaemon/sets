@@ -24,40 +24,8 @@ typedef struct Sets {
   struct Sets *next; /**< Ссылка на следующий элемент множества */
 } Sets;
 
-/**
- * @brief Создаёт новое множество с единственным элементом
- * @author BusterDaemon
- * @param num Значение первого элемента множества
- * @return Sets* Указатель на множество
- */
 Sets *New(int64_t num);
-
-/**
- * @brief Добавляет новый элемент множества
- * @author BusterDaemon
- * @param tail Указатель на множество
- * @param num Значение нового элемента
- */
 void Push(Sets **tail, int64_t num);
-
-/**
- * @brief Удаляет последний элемент из множества
- * @author BusterDaemon
- * @param tail Указатель на множество
- */
 void Pop(Sets **tail);
-
-/**
- * @brief Выводит все элементы множества
- * @author BusterDaemon
- * @param tail Указатель на множество
- */
 void PrintAll(Sets **tail);
-
-/**
- * @brief Определяет количество элементов (размер) множества
- * @author BusterDaemon
- * @param tail Указатель на множество
- * @return int Количество элементов (размер) множества
- */
 int Size(Sets **tail);
