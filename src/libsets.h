@@ -12,8 +12,7 @@
  */
 
 #include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <sys/types.h>
 
 #define _EMPTY_SET_MESSAGE "Set is empty"
 #define _ALLOCATE_SET_ERR "Cannot allocate memory"
