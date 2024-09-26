@@ -14,6 +14,8 @@
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
 #include "libsets.h"
+#include <stdio.h>
+#include <stdlib.h>
 #endif
 
 /**
@@ -34,6 +36,26 @@ Sets *New(int64_t num) {
   }
   set->num = num;
   set->next = NULL;
+
+  return set;
+}
+
+/**
+ * @brief Создание пустого множества
+ * @author BusterDaemon
+ * @details Функция аналогична функции New(), однако
+ * какой либо изначальный элемент здесь отсутствует, по
+ * сути возвращая пустое множество.
+ * @return Sets* Указатель на множество
+ */
+Sets *NewEmpty(void) {
+  Sets *set;
+  if ((set = (Sets *)malloc(sizeof(Sets))) == NULL) {
+    perror("Cannot allocate memory");
+    return NULL;
+  }
+
+  Pop(&set);
 
   return set;
 }
