@@ -10,6 +10,10 @@
  * @copyright GNU Public License
  *
  */
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
 
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
