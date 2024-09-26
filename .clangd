@@ -1,3 +1,13 @@
 CompileFlags:
     Add: [-Wall,-xc]
     Compiler: clang
+Diagnostics:
+    MissingIncludes: Strict
+    UnusedIncludes: Strict
+InlayHints:
+    Enabled: Yes
+    BlockEnd: Yes
+    Designators: Yes
+    ParameterNames: Yes
+    DeducedTypes: Yes
+    TypeNameLimit: 0
