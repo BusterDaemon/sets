@@ -15,6 +15,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define _EMPTY_SET_MESSAGE "Set is empty"
+#define _ALLOCATE_SET_ERR "Cannot allocate memory"
+
 /**
  * @brief Структура представляющая элемент множества
  * @author BusterDaemon

@@ -14,8 +14,6 @@
 #ifndef _LIBSETS_H
 #define _LIBSETS_H
 #include "libsets.h"
-#include <stdio.h>
-#include <stdlib.h>
 #endif
 
 /**
@@ -31,7 +29,7 @@
 Sets *New(int64_t num) {
   Sets *set;
   if ((set = (Sets *)malloc(sizeof(Sets))) == NULL) {
-    perror("Cannot allocate memory");
+    puts(_ALLOCATE_SET_ERR);
     return NULL;
   }
   set->num = num;
@@ -51,7 +49,7 @@ Sets *New(int64_t num) {
 Sets *NewEmpty(void) {
   Sets *set;
   if ((set = (Sets *)malloc(sizeof(Sets))) == NULL) {
-    perror("Cannot allocate memory");
+    puts(_ALLOCATE_SET_ERR);
     return NULL;
   }
 
@@ -92,7 +90,7 @@ void Push(Sets **tail, int64_t num) {
  */
 void Pop(Sets **tail) {
   if (*tail == NULL) {
-    perror("Set is empty");
+    puts(_EMPTY_SET_MESSAGE);
     return;
   }
 
@@ -119,7 +117,7 @@ void Pop(Sets **tail) {
  */
 void PrintAll(Sets **tail) {
   if (*tail == NULL) {
-    perror("Set is empty");
+    puts(_EMPTY_SET_MESSAGE);
     return;
   }
 
@@ -166,7 +164,7 @@ int Size(Sets **tail) {
  */
 int GetElem(Sets **tail, uint position) {
   if (*tail == NULL) {
-    perror("Set is empty");
+    puts(_EMPTY_SET_MESSAGE);
     return 0;
   }
 
@@ -196,7 +194,7 @@ int GetElem(Sets **tail, uint position) {
  */
 int IsExist(Sets **tail, int64_t num) {
   if (*tail == NULL) {
-    perror("Set is empty");
+    puts(_EMPTY_SET_MESSAGE);
     return 0;
   }
 
