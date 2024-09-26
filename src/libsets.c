@@ -124,13 +124,14 @@ void PrintAll(Sets **tail) {
   }
 
   Sets *current = *tail;
+  putc('{', stdout);
   do {
-    printf("%ld", current->num);
+    printf(" %ld", current->num);
     current = current->next;
     if (current != NULL)
       printf(", ");
   } while (current != NULL);
-  putc('\n', stdout);
+  printf(" }\n");
 }
 
 /**
