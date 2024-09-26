@@ -7,7 +7,7 @@
  * @version 0.1
  * @date 2024-09-25
  *
- * @copyright Copyright (c) 2024
+ * @copyright GNU Public License
  *
  */
 
