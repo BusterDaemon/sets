@@ -38,5 +38,5 @@ void Push(Sets **tail, int64_t num);
 void Pop(Sets **tail);
 void PrintAll(Sets **tail);
 int Size(Sets **tail);
-int GetElem(Sets **tail, uint position);
+int GetElem(Sets **tail, int position);
 int IsExist(Sets **tail, int64_t num);
