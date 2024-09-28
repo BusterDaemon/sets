@@ -29,6 +29,7 @@ typedef struct Sets {
 
 Sets *New(int64_t num);
 Sets *NewEmpty(void);
+Sets *Difference(Sets **setA, Sets **setB);
 void Push(Sets **tail, int64_t num);
 void Pop(Sets **tail);
 void PrintAll(Sets **tail);
