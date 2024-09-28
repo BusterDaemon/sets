@@ -211,3 +211,40 @@ int IsExist(Sets **tail, int64_t num) {
 
   return 0;
 }
+
+/**
+ * @brief Производит операцию разности
+ * @author rembov
+ * @details возвращается новое множество, 
+ * содержащее элементы, которые присутствуют в множестве A, 
+ * но отсутствуют в множестве B.
+ * @param setA: указатель на множество A, из которого будут удаляться элементы, присутствующие в множестве B.
+ * @param setB: указатель на множество B, элементы которого будут удалены из множества A.
+ * @return int Статус существования элемента с нужным значением
+ */
+
+
+
+
+
+Sets *Difference(Sets **setA, Sets **setB) {
+  if (*setA == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *diffSet = NULL;
+
+  Sets *currentA = *setA;
+
+  // Проходим по всем элементам множества A
+  while (currentA != NULL) {
+    // Если элемент множества A отсутствует в множестве B, добавляем его в diffSet
+    if (!IsExist(setB, currentA->num)) {
+      Push(&diffSet, currentA->num);
+    }
+    currentA = currentA->next;
+  }
+
+  return diffSet;
+}
