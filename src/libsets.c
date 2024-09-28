@@ -344,4 +344,42 @@ Sets *Intersection(Sets **setA, Sets **setB) {
 
   return intersectionSet;
 }
+/**
+ * @brief Производит операцию симметричной разности
+ * @author rembov
+ * @details Возвращает новое множество, содержащее элементы,
+ * которые присутствуют в одном из множеств (A или B), но не в обоих одновременно.
+ * @param setA Указатель на множество A
+ * @param setB Указатель на множество B
+ * @return Sets* Указатель на множество, содержащее симметричную разность множеств A и B
+ */
+Sets *SymmetricDifference(Sets **setA, Sets **setB) {
+  if (*setA == NULL && *setB == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *symDiffSet = NULL;
+
+  Sets *currentA = *setA;
+  Sets *currentB = *setB;
+
+  // Добавляем элементы, которые присутствуют в A, но отсутствуют в B
+  while (currentA != NULL) {
+    if (!IsExist(setB, currentA->num)) {
+      Push(&symDiffSet, currentA->num);
+    }
+    currentA = currentA->next;
+  }
+
+  // Добавляем элементы, которые присутствуют в B, но отсутствуют в A
+  while (currentB != NULL) {
+    if (!IsExist(setA, currentB->num)) {
+      Push(&symDiffSet, currentB->num);
+    }
+    currentB = currentB->next;
+  }
+
+  return symDiffSet;
+}
 
