@@ -33,7 +33,7 @@ Sets *Union(Sets **setA, Sets **setB);
 Sets *Difference(Sets **setA, Sets **setB);
 Sets *SymmetricDifference(Sets **setA, Sets **setB);
 Sets *Intersection(Sets **setA, Sets **setB);
-Sets *Complement(Sets **universalSet, Sets **setA) ;
+Sets *Complement(Sets **setA);
 void Push(Sets **tail, int64_t num);
 void Pop(Sets **tail);
 void PrintAll(Sets **tail);
