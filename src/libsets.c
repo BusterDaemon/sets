@@ -312,3 +312,36 @@ Sets *Complement(Sets **universalSet, Sets **setA) {
   return complementSet;
 }
 
+
+
+
+/**
+ * @brief Производит операцию пересечения
+ * @author rembov
+ * @details Возвращает новое множество, содержащее элементы,
+ * которые присутствуют одновременно в множестве A и множестве B.
+ * @param setA Указатель на множество A
+ * @param setB Указатель на множество B
+ * @return Sets* Указатель на множество, содержащее пересечение множеств A и B
+ */
+Sets *Intersection(Sets **setA, Sets **setB) {
+  if (*setA == NULL || *setB == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *intersectionSet = NULL;
+  Sets *currentA = *setA;
+
+  // Проходим по всем элементам множества A
+  while (currentA != NULL) {
+    // Если элемент присутствует в множестве B, добавляем его в intersectionSet
+    if (IsExist(setB, currentA->num)) {
+      Push(&intersectionSet, currentA->num);
+    }
+    currentA = currentA->next;
+  }
+
+  return intersectionSet;
+}
+
