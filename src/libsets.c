@@ -248,3 +248,38 @@ Sets *Difference(Sets **setA, Sets **setB) {
 
   return diffSet;
 }
+
+
+
+
+
+ * @brief Производит операцию объединения
+ * @author rembov
+ * @details возвращается новое множество, 
+ * содержащее все уникальные элементы из множеств A и B
+ * @param setA: указатель на множество A.
+ * @param setB: указатель на множество B.
+ * @return int Статус существования элемента с нужным значением
+ */
+Sets *Union(Sets **setA, Sets **setB) {
+  Sets *unionSet = NULL;
+
+  Sets *currentA = *setA;
+  Sets *currentB = *setB;
+
+  // Добавляем все элементы множества A в unionSet
+  while (currentA != NULL) {
+    Push(&unionSet, currentA->num);
+    currentA = currentA->next;
+  }
+
+  // Добавляем все элементы множества B в unionSet, если они не присутствуют в unionSet
+  while (currentB != NULL) {
+    if (!IsExist(&unionSet, currentB->num)) {
+      Push(&unionSet, currentB->num);
+    }
+    currentB = currentB->next;
+  }
+
+  return unionSet;
+}
