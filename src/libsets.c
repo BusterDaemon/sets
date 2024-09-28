@@ -284,44 +284,44 @@ Sets *Union(Sets **setA, Sets **setB) {
  * @brief Производит операцию дополнения в промежутке множества A
  * @author rembov
  * @details Возвращает новое множество, содержащее элементы,
- * которые присутствуют в промежутке от минимального до максимального значения множества A,
- * но отсутствуют в самом множестве A.
+ * которые присутствуют в промежутке от минимального до максимального значения
+ * множества A, но отсутствуют в самом множестве A.
  * @param setA Указатель на множество A
  * @return Sets* Указатель на множество, содержащее дополнение множества A
  * относительно универсального множества
  */
 Sets *Complement(Sets **setA) {
-    if (*setA == NULL) {
-        puts(_EMPTY_SET_MESSAGE);
-        return NULL;
+  if (*setA == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *complementSet = NULL;
+
+  Sets *current = *setA;
+  int64_t min = current->num;
+  int64_t max = current->num;
+
+  // Найдём минимальный и максимальный элементы множества A
+  while (current != NULL) {
+    if (current->num < min) {
+      min = current->num;
     }
-
-    Sets *complementSet = NULL;
-
-    Sets *current = *setA;
-    int64_t min = current->num;
-    int64_t max = current->num;
-
-    // Найдём минимальный и максимальный элементы множества A
-    while (current != NULL) {
-        if (current->num < min) {
-            min = current->num;
-        }
-        if (current->num > max) {
-            max = current->num;
-        }
-        current = current->next;
+    if (current->num > max) {
+      max = current->num;
     }
+    current = current->next;
+  }
 
-    // Проходим по всем значениям от min до max
-    for (int64_t i = min; i <= max; i++) {
-        // Если элемент отсутствует в множестве A, добавляем его в complementSet
-        if (!IsExist(setA, i)) {
-            Push(&complementSet, i);
-        }
+  // Проходим по всем значениям от min до max
+  for (int64_t i = min; i <= max; i++) {
+    // Если элемент отсутствует в множестве A, добавляем его в complementSet
+    if (!IsExist(setA, i)) {
+      Push(&complementSet, i);
     }
+  }
 
-    return complementSet;
+  return complementSet;
 }
 
 /**
