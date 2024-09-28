@@ -283,3 +283,32 @@ Sets *Union(Sets **setA, Sets **setB) {
 
   return unionSet;
 }
+
+
+
+/**
+ * @brief Производит операцию дополнения
+ * @author rembov
+ * @details Возвращает новое множество, содержащее элементы,
+ * которые присутствуют в универсальном множестве, но отсутствуют в множестве A.
+ * @param universalSet Указатель на универсальное множество
+ * @param setA Указатель на множество A
+ * @return Sets* Указатель на множество, содержащее дополнение множества A относительно универсального множества
+ */
+Sets *Complement(Sets **universalSet, Sets **setA) {
+  Sets *complementSet = NULL;
+
+  Sets *currentUniversal = *universalSet;
+
+  // Проходим по всем элементам универсального множества
+  while (currentUniversal != NULL) {
+    // Если элемент из универсального множества отсутствует в setA, добавляем его в complementSet
+    if (!IsExist(setA, currentUniversal->num)) {
+      Push(&complementSet, currentUniversal->num);
+    }
+    currentUniversal = currentUniversal->next;
+  }
+
+  return complementSet;
+}
+
