@@ -215,18 +215,15 @@ int IsExist(Sets **tail, int64_t num) {
 /**
  * @brief Производит операцию разности
  * @author rembov
- * @details возвращается новое множество, 
- * содержащее элементы, которые присутствуют в множестве A, 
+ * @details возвращается новое множество,
+ * содержащее элементы, которые присутствуют в множестве A,
  * но отсутствуют в множестве B.
- * @param setA: указатель на множество A, из которого будут удаляться элементы, присутствующие в множестве B.
- * @param setB: указатель на множество B, элементы которого будут удалены из множества A.
+ * @param setA: указатель на множество A, из которого будут удаляться элементы,
+ * присутствующие в множестве B.
+ * @param setB: указатель на множество B, элементы которого будут удалены из
+ * множества A.
  * @return int Статус существования элемента с нужным значением
  */
-
-
-
-
-
 Sets *Difference(Sets **setA, Sets **setB) {
   if (*setA == NULL) {
     puts(_EMPTY_SET_MESSAGE);
@@ -239,7 +236,8 @@ Sets *Difference(Sets **setA, Sets **setB) {
 
   // Проходим по всем элементам множества A
   while (currentA != NULL) {
-    // Если элемент множества A отсутствует в множестве B, добавляем его в diffSet
+    // Если элемент множества A отсутствует в множестве B, добавляем его в
+    // diffSet
     if (!IsExist(setB, currentA->num)) {
       Push(&diffSet, currentA->num);
     }
@@ -249,13 +247,10 @@ Sets *Difference(Sets **setA, Sets **setB) {
   return diffSet;
 }
 
-
-
-
-
+/*
  * @brief Производит операцию объединения
  * @author rembov
- * @details возвращается новое множество, 
+ * @details возвращается новое множество,
  * содержащее все уникальные элементы из множеств A и B
  * @param setA: указатель на множество A.
  * @param setB: указатель на множество B.
@@ -273,7 +268,8 @@ Sets *Union(Sets **setA, Sets **setB) {
     currentA = currentA->next;
   }
 
-  // Добавляем все элементы множества B в unionSet, если они не присутствуют в unionSet
+  // Добавляем все элементы множества B в unionSet, если они не присутствуют в
+  // unionSet
   while (currentB != NULL) {
     if (!IsExist(&unionSet, currentB->num)) {
       Push(&unionSet, currentB->num);
@@ -284,8 +280,6 @@ Sets *Union(Sets **setA, Sets **setB) {
   return unionSet;
 }
 
-
-
 /**
  * @brief Производит операцию дополнения
  * @author rembov
@@ -293,7 +287,8 @@ Sets *Union(Sets **setA, Sets **setB) {
  * которые присутствуют в универсальном множестве, но отсутствуют в множестве A.
  * @param universalSet Указатель на универсальное множество
  * @param setA Указатель на множество A
- * @return Sets* Указатель на множество, содержащее дополнение множества A относительно универсального множества
+ * @return Sets* Указатель на множество, содержащее дополнение множества A
+ * относительно универсального множества
  */
 Sets *Complement(Sets **universalSet, Sets **setA) {
   Sets *complementSet = NULL;
@@ -302,7 +297,8 @@ Sets *Complement(Sets **universalSet, Sets **setA) {
 
   // Проходим по всем элементам универсального множества
   while (currentUniversal != NULL) {
-    // Если элемент из универсального множества отсутствует в setA, добавляем его в complementSet
+    // Если элемент из универсального множества отсутствует в setA, добавляем
+    // его в complementSet
     if (!IsExist(setA, currentUniversal->num)) {
       Push(&complementSet, currentUniversal->num);
     }
@@ -311,9 +307,6 @@ Sets *Complement(Sets **universalSet, Sets **setA) {
 
   return complementSet;
 }
-
-
-
 
 /**
  * @brief Производит операцию пересечения
@@ -348,10 +341,12 @@ Sets *Intersection(Sets **setA, Sets **setB) {
  * @brief Производит операцию симметричной разности
  * @author rembov
  * @details Возвращает новое множество, содержащее элементы,
- * которые присутствуют в одном из множеств (A или B), но не в обоих одновременно.
+ * которые присутствуют в одном из множеств (A или B), но не в обоих
+ * одновременно.
  * @param setA Указатель на множество A
  * @param setB Указатель на множество B
- * @return Sets* Указатель на множество, содержащее симметричную разность множеств A и B
+ * @return Sets* Указатель на множество, содержащее симметричную разность
+ * множеств A и B
  */
 Sets *SymmetricDifference(Sets **setA, Sets **setB) {
   if (*setA == NULL && *setB == NULL) {
@@ -382,4 +377,3 @@ Sets *SymmetricDifference(Sets **setA, Sets **setB) {
 
   return symDiffSet;
 }
-
