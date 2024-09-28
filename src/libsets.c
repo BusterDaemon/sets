@@ -166,14 +166,14 @@ int Size(Sets **tail) {
  * @param position Позиция элемента
  * @return int Значение элемента множества
  */
-int GetElem(Sets **tail, uint position) {
+int GetElem(Sets **tail, int position) {
   if (*tail == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return 0;
   }
 
   Sets *current = *tail;
-  uint curpos = 0;
+  int curpos = 0;
 
   while (current->next != NULL) {
     if (curpos == position || current->next == NULL)
@@ -287,29 +287,46 @@ Sets *Union(Sets **setA, Sets **setB) {
 
 
 /**
- * @brief Производит операцию дополнения
+ * @brief Производит операцию дополнения в промежутке множества A
  * @author rembov
  * @details Возвращает новое множество, содержащее элементы,
- * которые присутствуют в универсальном множестве, но отсутствуют в множестве A.
- * @param universalSet Указатель на универсальное множество
+ * которые присутствуют в промежутке от минимального до максимального значения множества A,
+ * но отсутствуют в самом множестве A.
  * @param setA Указатель на множество A
- * @return Sets* Указатель на множество, содержащее дополнение множества A относительно универсального множества
+ * @return Sets* Указатель на множество, содержащее дополнение множества A в его промежутке
  */
-Sets *Complement(Sets **universalSet, Sets **setA) {
-  Sets *complementSet = NULL;
-
-  Sets *currentUniversal = *universalSet;
-
-  // Проходим по всем элементам универсального множества
-  while (currentUniversal != NULL) {
-    // Если элемент из универсального множества отсутствует в setA, добавляем его в complementSet
-    if (!IsExist(setA, currentUniversal->num)) {
-      Push(&complementSet, currentUniversal->num);
+Sets *Complement(Sets **setA) {
+    if (*setA == NULL) {
+        puts(_EMPTY_SET_MESSAGE);
+        return NULL;
     }
-    currentUniversal = currentUniversal->next;
-  }
 
-  return complementSet;
+    Sets *complementSet = NULL;
+
+    Sets *current = *setA;
+    int64_t min = current->num;
+    int64_t max = current->num;
+
+    // Найдём минимальный и максимальный элементы множества A
+    while (current != NULL) {
+        if (current->num < min) {
+            min = current->num;
+        }
+        if (current->num > max) {
+            max = current->num;
+        }
+        current = current->next;
+    }
+
+    // Проходим по всем значениям от min до max
+    for (int64_t i = min; i <= max; i++) {
+        // Если элемент отсутствует в множестве A, добавляем его в complementSet
+        if (!IsExist(setA, i)) {
+            Push(&complementSet, i);
+        }
+    }
+
+    return complementSet;
 }
 
 
@@ -354,12 +371,13 @@ Sets *Intersection(Sets **setA, Sets **setB) {
  * @return Sets* Указатель на множество, содержащее симметричную разность множеств A и B
  */
 Sets *SymmetricDifference(Sets **setA, Sets **setB) {
+  Sets *symDiffSet = NULL;
+
+  // Если оба множества пусты, возвращаем NULL
   if (*setA == NULL && *setB == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return NULL;
   }
-
-  Sets *symDiffSet = NULL;
 
   Sets *currentA = *setA;
   Sets *currentB = *setB;
@@ -382,4 +400,3 @@ Sets *SymmetricDifference(Sets **setA, Sets **setB) {
 
   return symDiffSet;
 }
-
