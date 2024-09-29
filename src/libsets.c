@@ -203,7 +203,7 @@ int IsExist(Sets **tail, int64_t num) {
   }
 
   Sets *current = *tail;
-  while (current->next != NULL) {
+  while (current != NULL) {
     if (current->num == num)
       return 1;
     current = current->next;
@@ -283,43 +283,31 @@ Sets *Union(Sets **setA, Sets **setB) {
 
 /**
  * @brief Производит операцию дополнения в промежутке множества A
- * @author rembov
+ * @authors rembov
+ * @authors BusterDaemon
  * @details Возвращает новое множество, содержащее элементы,
  * которые присутствуют в промежутке от минимального до максимального значения
  * множества A, но отсутствуют в самом множестве A.
  * @param setA Указатель на множество A
+ * @param min Значение минимума
+ * @param max Значение максимума
  * @return Sets* Указатель на множество, содержащее дополнение множества A в его
  * промежутке
  */
-Sets *Complement(Sets **setA) {
+Sets *Complement(Sets **setA, int64_t min, int64_t max) {
   if (*setA == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return NULL;
   }
 
-  Sets *complementSet = NULL;
+  Sets *complementSet = NewEmpty();
 
-  Sets *current = *setA;
-  int64_t min = current->num;
-  int64_t max = current->num;
-
-  // Найдём минимальный и максимальный элементы множества A
-  while (current != NULL) {
-    if (current->num < min) {
-      min = current->num;
-    }
-    if (current->num > max) {
-      max = current->num;
-    }
-    current = current->next;
-  }
-
-  // Проходим по всем значениям от min до max
-  for (int64_t i = min; i <= max; i++) {
+  // Проходим по всем значениям удовлетворяющих неравенству
+  // min < x < max
+  for (int64_t i = min + 1; i < max; i++) {
     // Если элемент отсутствует в множестве A, добавляем его в complementSet
-    if (!IsExist(setA, i)) {
+    if (!IsExist(setA, i))
       Push(&complementSet, i);
-    }
   }
 
   return complementSet;
@@ -354,6 +342,7 @@ Sets *Intersection(Sets **setA, Sets **setB) {
 
   return intersectionSet;
 }
+
 /**
  * @brief Производит операцию симметричной разности
  * @author rembov
