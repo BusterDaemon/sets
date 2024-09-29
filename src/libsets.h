@@ -29,9 +29,14 @@ typedef struct Sets {
 
 Sets *New(int64_t num);
 Sets *NewEmpty(void);
+Sets *Union(Sets **setA, Sets **setB);
+Sets *Difference(Sets **setA, Sets **setB);
+Sets *SymmetricDifference(Sets **setA, Sets **setB);
+Sets *Intersection(Sets **setA, Sets **setB);
+Sets *Complement(Sets **setA, int64_t min, int64_t max);
 void Push(Sets **tail, int64_t num);
 void Pop(Sets **tail);
 void PrintAll(Sets **tail);
 int Size(Sets **tail);
-int GetElem(Sets **tail, uint position);
+int GetElem(Sets **tail, int position);
 int IsExist(Sets **tail, int64_t num);

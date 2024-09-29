@@ -166,14 +166,14 @@ int Size(Sets **tail) {
  * @param position Позиция элемента
  * @return int Значение элемента множества
  */
-int GetElem(Sets **tail, uint position) {
+int GetElem(Sets **tail, int position) {
   if (*tail == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return 0;
   }
 
   Sets *current = *tail;
-  uint curpos = 0;
+  int curpos = 0;
 
   while (current->next != NULL) {
     if (curpos == position || current->next == NULL)
@@ -203,11 +203,184 @@ int IsExist(Sets **tail, int64_t num) {
   }
 
   Sets *current = *tail;
-  while (current->next != NULL) {
+  while (current != NULL) {
     if (current->num == num)
       return 1;
     current = current->next;
   }
 
   return 0;
+}
+
+/**
+ * @brief Производит операцию разности
+ * @author rembov
+ * @details возвращается новое множество,
+ * содержащее элементы, которые присутствуют в множестве A,
+ * но отсутствуют в множестве B.
+ * @param setA: указатель на множество A, из которого будут удаляться элементы,
+ * присутствующие в множестве B.
+ * @param setB: указатель на множество B, элементы которого будут удалены из
+ * множества A.
+ * @return int Статус существования элемента с нужным значением
+ */
+
+Sets *Difference(Sets **setA, Sets **setB) {
+  if (*setA == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *diffSet = NULL;
+
+  Sets *currentA = *setA;
+
+  // Проходим по всем элементам множества A
+  while (currentA != NULL) {
+    // Если элемент множества A отсутствует в множестве B, добавляем его в
+    // diffSet
+    if (!IsExist(setB, currentA->num)) {
+      Push(&diffSet, currentA->num);
+    }
+    currentA = currentA->next;
+  }
+
+  return diffSet;
+}
+
+/**
+ * @brief Производит операцию объединения
+ * @author rembov
+ * @details возвращается  новое множество,
+ * содержащее все уникальные элементы из множеств A и B
+ * @param setA: указатель на множество A.
+ * @param setB: указатель на множество B.*@ return int Статус существования
+ * элемента с нужным значением
+ */
+Sets *Union(Sets **setA, Sets **setB) {
+  Sets *unionSet = NULL;
+
+  Sets *currentA = *setA;
+  Sets *currentB = *setB;
+
+  // Добавляем все элементы множества A в unionSet
+  while (currentA != NULL) {
+    Push(&unionSet, currentA->num);
+    currentA = currentA->next;
+  }
+
+  // Добавляем все элементы множества B в unionSet, если они не присутствуют в
+  // unionSet
+  while (currentB != NULL) {
+    if (!IsExist(&unionSet, currentB->num)) {
+      Push(&unionSet, currentB->num);
+    }
+    currentB = currentB->next;
+  }
+
+  return unionSet;
+}
+
+/**
+ * @brief Производит операцию дополнения в промежутке множества A
+ * @authors rembov
+ * @authors BusterDaemon
+ * @details Возвращает новое множество, содержащее элементы,
+ * которые присутствуют в промежутке от минимального до максимального значения
+ * множества A, но отсутствуют в самом множестве A.
+ * @param setA Указатель на множество A
+ * @param min Значение минимума
+ * @param max Значение максимума
+ * @return Sets* Указатель на множество, содержащее дополнение множества A в его
+ * промежутке
+ */
+Sets *Complement(Sets **setA, int64_t min, int64_t max) {
+  if (*setA == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *complementSet = NewEmpty();
+
+  // Проходим по всем значениям удовлетворяющих неравенству
+  // min < x < max
+  for (int64_t i = min + 1; i < max; i++) {
+    // Если элемент отсутствует в множестве A, добавляем его в complementSet
+    if (!IsExist(setA, i))
+      Push(&complementSet, i);
+  }
+
+  return complementSet;
+}
+
+/**
+ * @brief Производит операцию пересечения
+ * @author rembov
+ * @details Возвращает новое множество, содержащее элементы,
+ * которые присутствуют одновременно в множестве A и множестве B.
+ * @param setA Указатель на множество A
+ * @param setB Указатель на множество B
+ * @return Sets* Указатель на множество, содержащее пересечение множеств A и B
+ */
+Sets *Intersection(Sets **setA, Sets **setB) {
+  if (*setA == NULL || *setB == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *intersectionSet = NULL;
+  Sets *currentA = *setA;
+
+  // Проходим по всем элементам множества A
+  while (currentA != NULL) {
+    // Если элемент присутствует в множестве B, добавляем его в intersectionSet
+    if (IsExist(setB, currentA->num)) {
+      Push(&intersectionSet, currentA->num);
+    }
+    currentA = currentA->next;
+  }
+
+  return intersectionSet;
+}
+
+/**
+ * @brief Производит операцию симметричной разности
+ * @author rembov
+ * @details Возвращает новое множество, содержащее элементы,
+ * которые присутствуют в одном из множеств (A или B), но не в обоих
+ * одновременно.
+ * @param setA Указатель на множество A
+ * @param setB Указатель на множество B
+ * @return Sets* Указатель на множество, содержащее симметричную разность
+ * множеств A и B
+ */
+Sets *SymmetricDifference(Sets **setA, Sets **setB) {
+  Sets *symDiffSet = NULL;
+
+  // Если оба множества пусты, возвращаем NULL
+  if (*setA == NULL && *setB == NULL) {
+    puts(_EMPTY_SET_MESSAGE);
+    return NULL;
+  }
+
+  Sets *currentA = *setA;
+  Sets *currentB = *setB;
+
+  // Добавляем элементы, которые присутствуют в A, но отсутствуют в B
+  while (currentA != NULL) {
+    if (!IsExist(setB, currentA->num)) {
+      Push(&symDiffSet, currentA->num);
+    }
+    currentA = currentA->next;
+  }
+
+  // Добавляем элементы, которые присутствуют в B, но отсутствуют в A
+  while (currentB != NULL) {
+    if (!IsExist(setA, currentB->num)) {
+      Push(&symDiffSet, currentB->num);
+    }
+    currentB = currentB->next;
+  }
+
+  return symDiffSet;
 }
