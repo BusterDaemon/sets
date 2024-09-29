@@ -203,7 +203,7 @@ int IsExist(Sets **tail, int64_t num) {
   }
 
   Sets *current = *tail;
-  while (current->next != NULL) {
+  while (current != NULL) {
     if (current->num == num)
       return 1;
     current = current->next;
