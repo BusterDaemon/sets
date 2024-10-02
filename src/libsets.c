@@ -14,11 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-
-#ifndef _LIBSETS_H
-#define _LIBSETS_H
 #include "libsets.h"
-#endif
 
 /**
  * @brief Создаёт новое множество с единственным элементом

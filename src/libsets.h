@@ -10,10 +10,10 @@
  * @copyright GNU Public License
  *
  */
-
+#ifndef _LIBSETS_H
+#define _LIBSETS_H
 #include <stdint.h>
 #include <sys/types.h>
-
 #define _EMPTY_SET_MESSAGE "Set is empty"
 #define _ALLOCATE_SET_ERR "Cannot allocate memory"
 
@@ -40,3 +40,4 @@ void PrintAll(SetElem **tail);
 int Size(SetElem **tail);
 int GetElem(SetElem **tail, int position);
 int IsExist(SetElem **tail, int64_t num);
+#endif
