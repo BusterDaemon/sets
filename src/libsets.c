@@ -28,11 +28,11 @@
  * Если память выделить не удалось тогда функция возвращает нулевой
  * указатель и сообщает об этом.
  * @param num Значение элемента множества
- * @return Sets* Указатель на множество/элемент множества
+ * @return SetElem* Указатель на множество/элемент множества
  */
-Sets *New(int64_t num) {
-  Sets *set;
-  if ((set = (Sets *)malloc(sizeof(Sets))) == NULL) {
+SetElem *New(int64_t num) {
+  SetElem *set;
+  if ((set = (SetElem *)malloc(sizeof(SetElem))) == NULL) {
     puts(_ALLOCATE_SET_ERR);
     return NULL;
   }
@@ -48,11 +48,11 @@ Sets *New(int64_t num) {
  * @details Функция аналогична функции New(), однако
  * какой либо изначальный элемент здесь отсутствует, по
  * сути возвращая пустое множество.
- * @return Sets* Указатель на множество
+ * @return SetElem* Указатель на множество
  */
-Sets *NewEmpty(void) {
-  Sets *set;
-  if ((set = (Sets *)malloc(sizeof(Sets))) == NULL) {
+SetElem *NewEmpty(void) {
+  SetElem *set;
+  if ((set = (SetElem *)malloc(sizeof(SetElem))) == NULL) {
     puts(_ALLOCATE_SET_ERR);
     return NULL;
   }
@@ -71,13 +71,13 @@ Sets *NewEmpty(void) {
  * @param tail Указатель на множество
  * @param num Значение нового элемента
  */
-void Push(Sets **tail, int64_t num) {
+void Push(SetElem **tail, int64_t num) {
   if (*tail == NULL) {
     *tail = New(num);
     return;
   }
 
-  Sets *new = New(num);
+  SetElem *new = New(num);
 
   new->next = *tail;
   *tail = new;
@@ -92,14 +92,14 @@ void Push(Sets **tail, int64_t num) {
  * предыдущий элемент от удаляемого.
  * @param tail Указатель на множество
  */
-void Pop(Sets **tail) {
+void Pop(SetElem **tail) {
   if (*tail == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return;
   }
 
-  Sets *current = *tail;
-  Sets *prev = NULL;
+  SetElem *current = *tail;
+  SetElem *prev = NULL;
   while (current->next != NULL) {
     prev = current;
     current = current->next;
@@ -119,13 +119,13 @@ void Pop(Sets **tail) {
  * @author BusterDaemon
  * @param tail Указатель на множество
  */
-void PrintAll(Sets **tail) {
+void PrintAll(SetElem **tail) {
   if (*tail == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return;
   }
 
-  Sets *current = *tail;
+  SetElem *current = *tail;
   putc('{', stdout);
   do {
     printf(" %ld", current->num);
@@ -142,10 +142,10 @@ void PrintAll(Sets **tail) {
  * @param tail Указатель на множество
  * @return int Количество элементов (размер) множества
  */
-int Size(Sets **tail) {
+int Size(SetElem **tail) {
   int size = 0;
 
-  Sets *current = *tail;
+  SetElem *current = *tail;
   while (current != NULL) {
     size++;
     current = current->next;
@@ -166,13 +166,13 @@ int Size(Sets **tail) {
  * @param position Позиция элемента
  * @return int Значение элемента множества
  */
-int GetElem(Sets **tail, int position) {
+int GetElem(SetElem **tail, int position) {
   if (*tail == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return 0;
   }
 
-  Sets *current = *tail;
+  SetElem *current = *tail;
   int curpos = 0;
 
   while (current->next != NULL) {
@@ -196,13 +196,13 @@ int GetElem(Sets **tail, int position) {
  * @param num Значение существование которого проверяется
  * @return int Статус существования элемента с нужным значением
  */
-int IsExist(Sets **tail, int64_t num) {
+int IsExist(SetElem **tail, int64_t num) {
   if (*tail == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return 0;
   }
 
-  Sets *current = *tail;
+  SetElem *current = *tail;
   while (current != NULL) {
     if (current->num == num)
       return 1;
@@ -225,15 +225,15 @@ int IsExist(Sets **tail, int64_t num) {
  * @return int Статус существования элемента с нужным значением
  */
 
-Sets *Difference(Sets **setA, Sets **setB) {
+SetElem *Difference(SetElem **setA, SetElem **setB) {
   if (*setA == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return NULL;
   }
 
-  Sets *diffSet = NULL;
+  SetElem *diffSet = NULL;
 
-  Sets *currentA = *setA;
+  SetElem *currentA = *setA;
 
   // Проходим по всем элементам множества A
   while (currentA != NULL) {
@@ -257,11 +257,11 @@ Sets *Difference(Sets **setA, Sets **setB) {
  * @param setB: указатель на множество B.*@ return int Статус существования
  * элемента с нужным значением
  */
-Sets *Union(Sets **setA, Sets **setB) {
-  Sets *unionSet = NULL;
+SetElem *Union(SetElem **setA, SetElem **setB) {
+  SetElem *unionSet = NULL;
 
-  Sets *currentA = *setA;
-  Sets *currentB = *setB;
+  SetElem *currentA = *setA;
+  SetElem *currentB = *setB;
 
   // Добавляем все элементы множества A в unionSet
   while (currentA != NULL) {
@@ -291,16 +291,16 @@ Sets *Union(Sets **setA, Sets **setB) {
  * @param setA Указатель на множество A
  * @param min Значение минимума
  * @param max Значение максимума
- * @return Sets* Указатель на множество, содержащее дополнение множества A в его
+ * @return SetElem* Указатель на множество, содержащее дополнение множества A в его
  * промежутке
  */
-Sets *Complement(Sets **setA, int64_t min, int64_t max) {
+SetElem *Complement(SetElem **setA, int64_t min, int64_t max) {
   if (*setA == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return NULL;
   }
 
-  Sets *complementSet = NewEmpty();
+  SetElem *complementSet = NewEmpty();
 
   // Проходим по всем значениям удовлетворяющих неравенству
   // min < x < max
@@ -320,16 +320,16 @@ Sets *Complement(Sets **setA, int64_t min, int64_t max) {
  * которые присутствуют одновременно в множестве A и множестве B.
  * @param setA Указатель на множество A
  * @param setB Указатель на множество B
- * @return Sets* Указатель на множество, содержащее пересечение множеств A и B
+ * @return SetElem* Указатель на множество, содержащее пересечение множеств A и B
  */
-Sets *Intersection(Sets **setA, Sets **setB) {
+SetElem *Intersection(SetElem **setA, SetElem **setB) {
   if (*setA == NULL || *setB == NULL) {
     puts(_EMPTY_SET_MESSAGE);
     return NULL;
   }
 
-  Sets *intersectionSet = NULL;
-  Sets *currentA = *setA;
+  SetElem *intersectionSet = NULL;
+  SetElem *currentA = *setA;
 
   // Проходим по всем элементам множества A
   while (currentA != NULL) {
@@ -351,11 +351,11 @@ Sets *Intersection(Sets **setA, Sets **setB) {
  * одновременно.
  * @param setA Указатель на множество A
  * @param setB Указатель на множество B
- * @return Sets* Указатель на множество, содержащее симметричную разность
+ * @return SetElem* Указатель на множество, содержащее симметричную разность
  * множеств A и B
  */
-Sets *SymmetricDifference(Sets **setA, Sets **setB) {
-  Sets *symDiffSet = NULL;
+SetElem *SymmetricDifference(SetElem **setA, SetElem **setB) {
+  SetElem *symDiffSet = NULL;
 
   // Если оба множества пусты, возвращаем NULL
   if (*setA == NULL && *setB == NULL) {
@@ -363,8 +363,8 @@ Sets *SymmetricDifference(Sets **setA, Sets **setB) {
     return NULL;
   }
 
-  Sets *currentA = *setA;
-  Sets *currentB = *setB;
+  SetElem *currentA = *setA;
+  SetElem *currentB = *setB;
 
   // Добавляем элементы, которые присутствуют в A, но отсутствуют в B
   while (currentA != NULL) {
