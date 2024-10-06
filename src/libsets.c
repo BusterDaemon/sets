@@ -76,11 +76,19 @@ void Push(SetElem **tail, int64_t num) {
     *tail = New(num);
     return;
   }
+  SetElem *new = NULL;
 
-  SetElem *new = New(num);
+  if (!IsExist(tail, num)) {
+    new = New(num);
+  } else {
+    puts("Этот элемент уже существует");
+    return;
+  }
 
+  if (new != NULL) {
   new->next = *tail;
   *tail = new;
+  }
 }
 
 /**
