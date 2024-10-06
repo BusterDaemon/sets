@@ -55,3 +55,4 @@ main.c
 .vscode
 .vs
 ./src/.vs
+build
