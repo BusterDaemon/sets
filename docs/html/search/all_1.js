@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isexist_0',['isexist',['../libsets_8c.html#ad55b214b6fb54ba441ade1c8880a7a4d',1,'IsExist(Sets **tail, int64_t num):&#160;libsets.c'],['../libsets_8h.html#ad55b214b6fb54ba441ade1c8880a7a4d',1,'IsExist(Sets **tail, int64_t num):&#160;libsets.c']]]
+  ['2_20изучение_20предоставленных_20функций_3a_0',['2.  Изучение предоставленных функций:',['../md_README.html#autotoc_md4',1,'']]]
 ];

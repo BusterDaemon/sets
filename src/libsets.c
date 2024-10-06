@@ -1,6 +1,8 @@
 /**
  * @file libsets.c
- * @author BusterDaemon (bugsbunnygdi@pm.me)
+ * @authors BusterDaemon (bugsbunnygdi@pm.me)
+ * @authors Kadetys
+ * @authors rembov
  * @brief Реализация библиотеки для работы со множествами
  * @details Содержит реализацию работы библиотеки для операций над
  * множествами
@@ -10,6 +12,13 @@
  * @copyright GNU Public License
  *
  */
+
+/**
+* @mainpage Краткое описание
+* Добро пожаловать в документацию библиотеки "LibSets", высокопроизводительной библиотеки C для работы с числовыми множествами. 
+* Документация содержит подробное описание файлов библиотеки libsets.h и libsets.c, ознакомиться с которыми вы можете используя навигацию по меню.  
+* Для получения подробной информации и методических указаний советуем ознакомиться с файлом README.md
+*/
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -262,7 +271,8 @@ SetElem *Difference(SetElem **setA, SetElem **setB) {
  * @details возвращается  новое множество,
  * содержащее все уникальные элементы из множеств A и B
  * @param setA: указатель на множество A.
- * @param setB: указатель на множество B.*@ return int Статус существования
+ * @param setB: указатель на множество B.
+ * @return int Статус существования
  * элемента с нужным значением
  */
 SetElem *Union(SetElem **setA, SetElem **setB) {
