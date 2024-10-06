@@ -146,10 +146,10 @@ typedef struct SetElem {
     // ...
     // Функция выполняет дополнение множества в границах, указанных пользователем
     puts("Введите минимум");
-      fscanf(stdin, "%d", &min);
-      puts("Введите максимум");
-      fscanf(stdin, "%d", &max);
-      C = Complement(&А, min, max);
+    fscanf(stdin, "%d", &min);
+    puts("Введите максимум");
+    fscanf(stdin, "%d", &max);
+    C = Complement(&А, min, max);
     // ...
 ```
 
