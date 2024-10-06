@@ -76,6 +76,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Структуры данных</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
 <a href="#typedef-members">Определения типов</a> &#124;
 <a href="#func-members">Функции</a>  </div>
   <div class="headertitle"><div class="title">Файл libsets.h</div></div>
@@ -85,8 +86,7 @@ $(function() {
 <p>Определения для работы со множествами  
 <a href="#details">Подробнее...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;sys/types.h&gt;</code><br />
 </div>
 <p><a href="libsets_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
@@ -95,6 +95,15 @@ $(function() {
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSets.html">Sets</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Структура представляющая элемент множества  <a href="structSets.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:ae7beab048868218ad44620263f46e63c" id="r_ae7beab048868218ad44620263f46e63c"><td class="memItemLeft" align="right" valign="top"><a id="ae7beab048868218ad44620263f46e63c" name="ae7beab048868218ad44620263f46e63c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>_EMPTY_SET_MESSAGE</b>&#160;&#160;&#160;&quot;Set is empty&quot;</td></tr>
+<tr class="separator:ae7beab048868218ad44620263f46e63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d33908ffa1f12830fb2864032e6524" id="r_a14d33908ffa1f12830fb2864032e6524"><td class="memItemLeft" align="right" valign="top"><a id="a14d33908ffa1f12830fb2864032e6524" name="a14d33908ffa1f12830fb2864032e6524"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>_ALLOCATE_SET_ERR</b>&#160;&#160;&#160;&quot;Cannot allocate memory&quot;</td></tr>
+<tr class="separator:a14d33908ffa1f12830fb2864032e6524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Определения типов</h2></td></tr>
@@ -110,6 +119,21 @@ $(function() {
 <tr class="memitem:a7e093753ce45f3b28d60a9e00f5587a0" id="r_a7e093753ce45f3b28d60a9e00f5587a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSets.html">Sets</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#a7e093753ce45f3b28d60a9e00f5587a0">NewEmpty</a> (void)</td></tr>
 <tr class="memdesc:a7e093753ce45f3b28d60a9e00f5587a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создание пустого множества  <br /></td></tr>
 <tr class="separator:a7e093753ce45f3b28d60a9e00f5587a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad884a2297c96d402654795ba42da0622" id="r_ad884a2297c96d402654795ba42da0622"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSets.html">Sets</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#ad884a2297c96d402654795ba42da0622">Union</a> (<a class="el" href="structSets.html">Sets</a> **setA, <a class="el" href="structSets.html">Sets</a> **setB)</td></tr>
+<tr class="memdesc:ad884a2297c96d402654795ba42da0622"><td class="mdescLeft">&#160;</td><td class="mdescRight">Производит операцию объединения  <br /></td></tr>
+<tr class="separator:ad884a2297c96d402654795ba42da0622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd0c8ee29ffd9f1ce608b1e9f5a6c38" id="r_adfd0c8ee29ffd9f1ce608b1e9f5a6c38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSets.html">Sets</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#adfd0c8ee29ffd9f1ce608b1e9f5a6c38">Difference</a> (<a class="el" href="structSets.html">Sets</a> **setA, <a class="el" href="structSets.html">Sets</a> **setB)</td></tr>
+<tr class="memdesc:adfd0c8ee29ffd9f1ce608b1e9f5a6c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Производит операцию разности  <br /></td></tr>
+<tr class="separator:adfd0c8ee29ffd9f1ce608b1e9f5a6c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa54e5a5b2c652e62f2ef2a60c7f7ed" id="r_aefa54e5a5b2c652e62f2ef2a60c7f7ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSets.html">Sets</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#aefa54e5a5b2c652e62f2ef2a60c7f7ed">SymmetricDifference</a> (<a class="el" href="structSets.html">Sets</a> **setA, <a class="el" href="structSets.html">Sets</a> **setB)</td></tr>
+<tr class="memdesc:aefa54e5a5b2c652e62f2ef2a60c7f7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Производит операцию симметричной разности  <br /></td></tr>
+<tr class="separator:aefa54e5a5b2c652e62f2ef2a60c7f7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa768ad879ecada62c135b3e4a7183fe8" id="r_aa768ad879ecada62c135b3e4a7183fe8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSets.html">Sets</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#aa768ad879ecada62c135b3e4a7183fe8">Intersection</a> (<a class="el" href="structSets.html">Sets</a> **setA, <a class="el" href="structSets.html">Sets</a> **setB)</td></tr>
+<tr class="memdesc:aa768ad879ecada62c135b3e4a7183fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Производит операцию пересечения  <br /></td></tr>
+<tr class="separator:aa768ad879ecada62c135b3e4a7183fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9c851a651dad815dfe9b0cd275480f4" id="r_ad9c851a651dad815dfe9b0cd275480f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSets.html">Sets</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#ad9c851a651dad815dfe9b0cd275480f4">Complement</a> (<a class="el" href="structSets.html">Sets</a> **setA, int64_t min, int64_t max)</td></tr>
+<tr class="memdesc:ad9c851a651dad815dfe9b0cd275480f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Производит операцию дополнения в промежутке множества A.  <br /></td></tr>
+<tr class="separator:ad9c851a651dad815dfe9b0cd275480f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1157ddd8f36598887a2d8ab735a78fd" id="r_ae1157ddd8f36598887a2d8ab735a78fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#ae1157ddd8f36598887a2d8ab735a78fd">Push</a> (<a class="el" href="structSets.html">Sets</a> **tail, int64_t num)</td></tr>
 <tr class="memdesc:ae1157ddd8f36598887a2d8ab735a78fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление нового элемента  <br /></td></tr>
 <tr class="separator:ae1157ddd8f36598887a2d8ab735a78fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,9 +146,9 @@ $(function() {
 <tr class="memitem:a3f421903948c09b8c2933abfad50bd7b" id="r_a3f421903948c09b8c2933abfad50bd7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#a3f421903948c09b8c2933abfad50bd7b">Size</a> (<a class="el" href="structSets.html">Sets</a> **tail)</td></tr>
 <tr class="memdesc:a3f421903948c09b8c2933abfad50bd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определение количества элементов (размера) множества  <br /></td></tr>
 <tr class="separator:a3f421903948c09b8c2933abfad50bd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a852c5d9a28d831189dc7a3cebf03bea1" id="r_a852c5d9a28d831189dc7a3cebf03bea1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#a852c5d9a28d831189dc7a3cebf03bea1">GetElem</a> (<a class="el" href="structSets.html">Sets</a> **tail, uint position)</td></tr>
-<tr class="memdesc:a852c5d9a28d831189dc7a3cebf03bea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения определенного элемента  <br /></td></tr>
-<tr class="separator:a852c5d9a28d831189dc7a3cebf03bea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad53197485786c8e61e223fddc738cd19" id="r_ad53197485786c8e61e223fddc738cd19"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#ad53197485786c8e61e223fddc738cd19">GetElem</a> (<a class="el" href="structSets.html">Sets</a> **tail, int position)</td></tr>
+<tr class="memdesc:ad53197485786c8e61e223fddc738cd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получение значения определенного элемента  <br /></td></tr>
+<tr class="separator:ad53197485786c8e61e223fddc738cd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad55b214b6fb54ba441ade1c8880a7a4d" id="r_ad55b214b6fb54ba441ade1c8880a7a4d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="libsets_8h.html#ad55b214b6fb54ba441ade1c8880a7a4d">IsExist</a> (<a class="el" href="structSets.html">Sets</a> **tail, int64_t num)</td></tr>
 <tr class="memdesc:ad55b214b6fb54ba441ade1c8880a7a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет существование элемента с указанным значением  <br /></td></tr>
 <tr class="separator:ad55b214b6fb54ba441ade1c8880a7a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,8 +178,95 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">Функции</h2>
-<a id="a852c5d9a28d831189dc7a3cebf03bea1" name="a852c5d9a28d831189dc7a3cebf03bea1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a852c5d9a28d831189dc7a3cebf03bea1">&#9670;&#160;</a></span>GetElem()</h2>
+<a id="ad9c851a651dad815dfe9b0cd275480f4" name="ad9c851a651dad815dfe9b0cd275480f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9c851a651dad815dfe9b0cd275480f4">&#9670;&#160;</a></span>Complement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSets.html">Sets</a> * Complement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Производит операцию дополнения в промежутке множества A. </p>
+<dl class="section author"><dt>Авторы</dt><dd>rembov </dd>
+<dd>
+BusterDaemon</dd></dl>
+<p>Возвращает новое множество, содержащее элементы, которые присутствуют в промежутке от минимального до максимального значения множества A, но отсутствуют в самом множестве A. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setA</td><td>Указатель на множество A </td></tr>
+    <tr><td class="paramname">min</td><td>Значение минимума </td></tr>
+    <tr><td class="paramname">max</td><td>Значение максимума </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Sets* Указатель на множество, содержащее дополнение множества A в его промежутке </dd></dl>
+
+</div>
+</div>
+<a id="adfd0c8ee29ffd9f1ce608b1e9f5a6c38" name="adfd0c8ee29ffd9f1ce608b1e9f5a6c38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd0c8ee29ffd9f1ce608b1e9f5a6c38">&#9670;&#160;</a></span>Difference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSets.html">Sets</a> * Difference </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Производит операцию разности </p>
+<dl class="section author"><dt>Автор</dt><dd>rembov</dd></dl>
+<p>возвращается новое множество, содержащее элементы, которые присутствуют в множестве A, но отсутствуют в множестве B. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setA</td><td>указатель на множество A, из которого будут удаляться элементы, присутствующие в множестве B. </td></tr>
+    <tr><td class="paramname">setB</td><td>указатель на множество B, элементы которого будут удалены из множества A. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int Статус существования элемента с нужным значением </dd></dl>
+
+</div>
+</div>
+<a id="ad53197485786c8e61e223fddc738cd19" name="ad53197485786c8e61e223fddc738cd19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad53197485786c8e61e223fddc738cd19">&#9670;&#160;</a></span>GetElem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +280,7 @@ $(function() {
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>position</em>&#160;</td>
         </tr>
         <tr>
@@ -190,6 +301,45 @@ $(function() {
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>int Значение элемента множества </dd></dl>
+
+</div>
+</div>
+<a id="aa768ad879ecada62c135b3e4a7183fe8" name="aa768ad879ecada62c135b3e4a7183fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa768ad879ecada62c135b3e4a7183fe8">&#9670;&#160;</a></span>Intersection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSets.html">Sets</a> * Intersection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Производит операцию пересечения </p>
+<dl class="section author"><dt>Автор</dt><dd>rembov</dd></dl>
+<p>Возвращает новое множество, содержащее элементы, которые присутствуют одновременно в множестве A и множестве B. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setA</td><td>Указатель на множество A </td></tr>
+    <tr><td class="paramname">setB</td><td>Указатель на множество B </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Sets* Указатель на множество, содержащее пересечение множеств A и B </dd></dl>
 
 </div>
 </div>
@@ -399,6 +549,84 @@ $(function() {
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>int Количество элементов (размер) множества </dd></dl>
+
+</div>
+</div>
+<a id="aefa54e5a5b2c652e62f2ef2a60c7f7ed" name="aefa54e5a5b2c652e62f2ef2a60c7f7ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa54e5a5b2c652e62f2ef2a60c7f7ed">&#9670;&#160;</a></span>SymmetricDifference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSets.html">Sets</a> * SymmetricDifference </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Производит операцию симметричной разности </p>
+<dl class="section author"><dt>Автор</dt><dd>rembov</dd></dl>
+<p>Возвращает новое множество, содержащее элементы, которые присутствуют в одном из множеств (A или B), но не в обоих одновременно. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setA</td><td>Указатель на множество A </td></tr>
+    <tr><td class="paramname">setB</td><td>Указатель на множество B </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Sets* Указатель на множество, содержащее симметричную разность множеств A и B </dd></dl>
+
+</div>
+</div>
+<a id="ad884a2297c96d402654795ba42da0622" name="ad884a2297c96d402654795ba42da0622"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad884a2297c96d402654795ba42da0622">&#9670;&#160;</a></span>Union()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSets.html">Sets</a> * Union </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structSets.html">Sets</a> **&#160;</td>
+          <td class="paramname"><em>setB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Производит операцию объединения </p>
+<dl class="section author"><dt>Автор</dt><dd>rembov</dd></dl>
+<p>возвращается новое множество, содержащее все уникальные элементы из множеств A и B </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">setA</td><td>указатель на множество A. </td></tr>
+    <tr><td class="paramname">setB</td><td>указатель на множество B. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int Статус существования элемента с нужным значением </dd></dl>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isexist_0',['isexist',['../libsets_8c.html#ad55b214b6fb54ba441ade1c8880a7a4d',1,'IsExist(Sets **tail, int64_t num):&#160;libsets.c'],['../libsets_8h.html#ad55b214b6fb54ba441ade1c8880a7a4d',1,'IsExist(Sets **tail, int64_t num):&#160;libsets.c']]]
+  ['difference_0',['difference',['../libsets_8c.html#adfd0c8ee29ffd9f1ce608b1e9f5a6c38',1,'Difference(Sets **setA, Sets **setB):&#160;libsets.c'],['../libsets_8h.html#adfd0c8ee29ffd9f1ce608b1e9f5a6c38',1,'Difference(Sets **setA, Sets **setB):&#160;libsets.c']]]
 ];
