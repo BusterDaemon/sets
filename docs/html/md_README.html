@@ -74,10 +74,119 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<h2><a class="anchor" id="autotoc_md1"></a>
-Библиотека для работы со множествами на языке C</h2>
-<p>Данная библитоека позволяет работать с математическими множествами на языке C и предоставляет массу возможностей для этого. </p>
-</div></div><!-- contents -->
+<h1><a class="anchor" id="autotoc_md1"></a>
+Библиотека для работы со множествами на языке C</h1>
+<p>Данная библитоека позволяет работать с математическими множествами на языке C и предоставляет массу возможностей для этого. Эта библиотека предоставляет эффективные и гибкие инструменты для создания, манипулирования и анализа множеств целых чисел. Она разработана с упором на удобство и простоту использования, предоставляя разработчикам удобный интерфейс для реализации сложных алгоритмов, связанных с множествами. В данном документе вы найдете подробное описание функций библиотеки "LibSets", включая примеры использования и пояснения к каждому методу. Мы рассмотрим создание множеств, операции над множествами (объединение, пересечение, разность, симметрическая разность), проверку принадлежности элементов, итерацию по элементам множества и так далее.</p>
+<p>Общие сведения: Множество – математический объект, который является совокупностью (т.е. объединением в одно целое) некоторого количества определенных, вполне различимых реальных или абстрактных объектов. Объекты, которые составляют множества называются элементами множеств. Каждый объект может служить лишь одним элементом множества т.е. все элементы одного и того же множества отличны друг от друга. Наработки методических указаний:</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Методические указания по написанию кода для работы с множествами на языке C</h2>
+<p>Следуя методическим указаниям вам нужно написать код для работы с множествами на языке C. Фрагмент реализует односвязный динамический список для представления множества. </p>
+<h3><a class="anchor" id="autotoc_md3"></a>
+1.  Понимание структуры данных:</h3>
+<p>Предоставленный код использует структуру <code>SetElem</code> для представления множества:</p>
+<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>SetElem {</div>
+<div class="line">  int64_t num;</div>
+<div class="line">  <span class="keyword">struct </span>SetElem *next;</div>
+<div class="line">} SetElem;</div>
+</div><!-- fragment --><p>Каждый элемент <code>SetElem</code> хранит число (<code>num</code>) и указатель на следующий элемент (<code>next</code>). Множество представлено как односвязный список, где первый элемент списка является "головой" множества.</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+2.  Изучение предоставленных функций:</h3>
+<p><code><a class="el" href="libsets_8c.html#aa65e987d96f6503fa087cf8d4137378f" title="Создаёт новое множество с единственным элементом">New(int64_t num)</a></code>: Создает новое множество, содержащее только один элемент со значением <code>num</code>. <code><a class="el" href="libsets_8c.html#a7e093753ce45f3b28d60a9e00f5587a0" title="Создание пустого множества">NewEmpty(void)</a></code>: Создает пустое множество. <code>Push(SetElem **tail, int64_t num)</code>: Добавляет новый элемент <code>num</code> в начало множества (в начало списка). <code>Pop(SetElem **tail)</code>: Удаляет первый элемент множества. Обратите внимание, что функция модифицирует указатель <code>tail</code>.</p>
+<h3><a class="anchor" id="autotoc_md5"></a>
+3.  Основные операции над множествами:</h3>
+<ol type="1">
+<li>Создание нового множества(New) - Создаёт множество с начальным элементом.</li>
+<li>Создание пустого множества(NewEmpty) - Создаёт множество без элементов.</li>
+<li>Добавление нового элемента(Push) - Добавляет указанный элемент в существующее множество.</li>
+<li>Удаление первого элемента(Pop) - Удаляет указанный элемент в существующего множества.</li>
+<li>Вывод множества(PrintAll) - Выводит в консоль все элементы множества.</li>
+<li>Определение размера множества(Size) - Выводит количeство элементов множества.</li>
+<li>Получение значений элемента(GetElem) - Выводит в консоль элемент находящийся на указанной позиции.</li>
+<li>Проверка существования элемента(IsExist) - Проверяет наличие указанного элемента в множестве.</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md6"></a>
+4.  Примеры использования:</h3>
+<h4><a class="anchor" id="autotoc_md7"></a>
+a) Объединение:</h4>
+<div class="fragment"><div class="line">SetElem *A = <a class="code hl_function" href="libsets_8c.html#a7e093753ce45f3b28d60a9e00f5587a0">NewEmpty</a>();</div>
+<div class="line">SetElem *B = <a class="code hl_function" href="libsets_8c.html#a7e093753ce45f3b28d60a9e00f5587a0">NewEmpty</a>();</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">// Данная функция создаёт из множеств А и В множество С</span></div>
+<div class="line">SetElem *C = <a class="code hl_function" href="libsets_8c.html#ad884a2297c96d402654795ba42da0622">Union</a>(&amp;A, &amp;B);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_a7e093753ce45f3b28d60a9e00f5587a0"><div class="ttname"><a href="libsets_8c.html#a7e093753ce45f3b28d60a9e00f5587a0">NewEmpty</a></div><div class="ttdeci">Sets * NewEmpty(void)</div><div class="ttdoc">Создание пустого множества</div><div class="ttdef"><b>Definition</b> libsets.c:62</div></div>
+<div class="ttc" id="alibsets_8c_html_ad884a2297c96d402654795ba42da0622"><div class="ttname"><a href="libsets_8c.html#ad884a2297c96d402654795ba42da0622">Union</a></div><div class="ttdeci">Sets * Union(Sets **setA, Sets **setB)</div><div class="ttdoc">Производит операцию объединения</div><div class="ttdef"><b>Definition</b> libsets.c:270</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md8"></a>
+b) Проверка принадлежности:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">// Данная функция выполняет проверку наличия в множестве элеиента 27, в случае если он отсутствует добавляет его</span></div>
+<div class="line"><span class="keywordflow">if</span> (!<a class="code hl_function" href="libsets_8c.html#ad55b214b6fb54ba441ade1c8880a7a4d">IsExist</a>(A, 27)) {</div>
+<div class="line">    <a class="code hl_function" href="libsets_8c.html#ae1157ddd8f36598887a2d8ab735a78fd">Push</a>(&amp;A, 27);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="ttc" id="alibsets_8c_html_ad55b214b6fb54ba441ade1c8880a7a4d"><div class="ttname"><a href="libsets_8c.html#ad55b214b6fb54ba441ade1c8880a7a4d">IsExist</a></div><div class="ttdeci">int IsExist(Sets **tail, int64_t num)</div><div class="ttdoc">Проверяет существование элемента с указанным значением</div><div class="ttdef"><b>Definition</b> libsets.c:208</div></div>
+<div class="ttc" id="alibsets_8c_html_ae1157ddd8f36598887a2d8ab735a78fd"><div class="ttname"><a href="libsets_8c.html#ae1157ddd8f36598887a2d8ab735a78fd">Push</a></div><div class="ttdeci">void Push(Sets **tail, int64_t num)</div><div class="ttdoc">Добавление нового элемента</div><div class="ttdef"><b>Definition</b> libsets.c:83</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md9"></a>
+c) Добавление элементов:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">//  Данная функция выполняет добавление элемента в множество</span></div>
+<div class="line">fscanf(stdin, <span class="stringliteral">&quot;%d&quot;</span>, &amp;data);</div>
+<div class="line"><a class="code hl_function" href="libsets_8c.html#ae1157ddd8f36598887a2d8ab735a78fd">Push</a>(&amp;A, data);</div>
+<div class="line"><span class="comment">// ...</span></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md10"></a>
+d) удаление элементов:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">//  Данная функция выполняет удаление последнего элемента в множестве</span></div>
+<div class="line"> <a class="code hl_function" href="libsets_8c.html#a830f740cf70eaa6d07453943c623d014">Pop</a>(&amp;A);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_a830f740cf70eaa6d07453943c623d014"><div class="ttname"><a href="libsets_8c.html#a830f740cf70eaa6d07453943c623d014">Pop</a></div><div class="ttdeci">void Pop(Sets **tail)</div><div class="ttdoc">Удаляет первый элемент (голову) множества.</div><div class="ttdef"><b>Definition</b> libsets.c:104</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md11"></a>
+e) вывод элементов:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">//  Данная функция выполняет вывод всех элементов множества в консоль</span></div>
+<div class="line"> <a class="code hl_function" href="libsets_8c.html#aee7807b9753144be3131cc2f3ab1b5af">PrintAll</a>(&amp;A);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_aee7807b9753144be3131cc2f3ab1b5af"><div class="ttname"><a href="libsets_8c.html#aee7807b9753144be3131cc2f3ab1b5af">PrintAll</a></div><div class="ttdeci">void PrintAll(Sets **tail)</div><div class="ttdoc">Вывод всего множества</div><div class="ttdef"><b>Definition</b> libsets.c:131</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md12"></a>
+f) Получение значения выбранного элемента:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">// Получение значения 4-го элемента (нумерация с нуля)</span></div>
+<div class="line"><span class="keywordtype">int</span> x = <a class="code hl_function" href="libsets_8c.html#ad53197485786c8e61e223fddc738cd19">GetElem</a>(&amp;A, 3);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_ad53197485786c8e61e223fddc738cd19"><div class="ttname"><a href="libsets_8c.html#ad53197485786c8e61e223fddc738cd19">GetElem</a></div><div class="ttdeci">int GetElem(Sets **tail, int position)</div><div class="ttdoc">Получение значения определенного элемента</div><div class="ttdef"><b>Definition</b> libsets.c:178</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md13"></a>
+g)Разность множеств:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">//  Данная функция вычисляет разность двух указанных множеств и записывает её в третье множество</span></div>
+<div class="line">C = <a class="code hl_function" href="libsets_8c.html#adfd0c8ee29ffd9f1ce608b1e9f5a6c38">Difference</a>(&amp;A, &amp;B);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_adfd0c8ee29ffd9f1ce608b1e9f5a6c38"><div class="ttname"><a href="libsets_8c.html#adfd0c8ee29ffd9f1ce608b1e9f5a6c38">Difference</a></div><div class="ttdeci">Sets * Difference(Sets **setA, Sets **setB)</div><div class="ttdoc">Производит операцию разности</div><div class="ttdef"><b>Definition</b> libsets.c:237</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md14"></a>
+h) Симетричная разность множеств:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">//  Данная функция вычисляет симетричную разность двух указанных множеств и записывает её в третье множество</span></div>
+<div class="line"> C = <a class="code hl_function" href="libsets_8c.html#aefa54e5a5b2c652e62f2ef2a60c7f7ed">SymmetricDifference</a>(&amp;A, &amp;B);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_aefa54e5a5b2c652e62f2ef2a60c7f7ed"><div class="ttname"><a href="libsets_8c.html#aefa54e5a5b2c652e62f2ef2a60c7f7ed">SymmetricDifference</a></div><div class="ttdeci">Sets * SymmetricDifference(Sets **setA, Sets **setB)</div><div class="ttdoc">Производит операцию симметричной разности</div><div class="ttdef"><b>Definition</b> libsets.c:367</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md15"></a>
+i) Пересечения множеств:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">//  Данная функция выполняет поиск пересекающихся элементов двух указанных множеств и записывает результат в третье множество</span></div>
+<div class="line"> C = <a class="code hl_function" href="libsets_8c.html#aa768ad879ecada62c135b3e4a7183fe8">Intersection</a>(&amp;A, &amp;B);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_aa768ad879ecada62c135b3e4a7183fe8"><div class="ttname"><a href="libsets_8c.html#aa768ad879ecada62c135b3e4a7183fe8">Intersection</a></div><div class="ttdeci">Sets * Intersection(Sets **setA, Sets **setB)</div><div class="ttdoc">Производит операцию пересечения</div><div class="ttdef"><b>Definition</b> libsets.c:335</div></div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md16"></a>
+j) Дополнение множества:</h4>
+<div class="fragment"><div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="comment">// Функция выполняет дополнение множества в границах, указанных пользователем</span></div>
+<div class="line">puts(<span class="stringliteral">&quot;Введите минимум&quot;</span>);</div>
+<div class="line">fscanf(stdin, <span class="stringliteral">&quot;%d&quot;</span>, &amp;min);</div>
+<div class="line">puts(<span class="stringliteral">&quot;Введите максимум&quot;</span>);</div>
+<div class="line">fscanf(stdin, <span class="stringliteral">&quot;%d&quot;</span>, &amp;max);</div>
+<div class="line">C = <a class="code hl_function" href="libsets_8c.html#ad9c851a651dad815dfe9b0cd275480f4">Complement</a>(&amp;А, min, max);</div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="ttc" id="alibsets_8c_html_ad9c851a651dad815dfe9b0cd275480f4"><div class="ttname"><a href="libsets_8c.html#ad9c851a651dad815dfe9b0cd275480f4">Complement</a></div><div class="ttdeci">Sets * Complement(Sets **setA, int64_t min, int64_t max)</div><div class="ttdoc">Производит операцию дополнения в промежутке множества A.</div><div class="ttdef"><b>Definition</b> libsets.c:307</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
