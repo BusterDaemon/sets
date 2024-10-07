@@ -87,9 +87,15 @@ void Push(Sets **tail, int64_t num) {
     *tail = New(num);
     return;
   }
+<<<<<<< docs
 
   Sets *new = New(num);
 
+=======
+  SetElem *new = NULL;
+    new = New(num);
+  if (new != NULL) {
+>>>>>>> local
   new->next = *tail;
   *tail = new;
 }
@@ -395,4 +401,14 @@ Sets *SymmetricDifference(Sets **setA, Sets **setB) {
   }
 
   return symDiffSet;
+}
+
+/**
+ * @brief Вычисление мощности множества
+ * @author Kadet
+ * @param tail Указатель на множество
+ * @return int64_t Мощность множества (количество элементов)
+ */
+int64_t PowerSetSize(SetElem **tail) {
+  return (int64_t)1 << Size(tail);
 }

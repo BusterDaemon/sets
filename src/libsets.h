@@ -27,6 +27,7 @@ typedef struct Sets {
   struct Sets *next; /**< Ссылка на следующий элемент множества */
 } Sets;
 
+<<<<<<< docs
 Sets *New(int64_t num);
 Sets *NewEmpty(void);
 Sets *Union(Sets **setA, Sets **setB);
@@ -40,3 +41,19 @@ void PrintAll(Sets **tail);
 int Size(Sets **tail);
 int GetElem(Sets **tail, int position);
 int IsExist(Sets **tail, int64_t num);
+=======
+SetElem *New(int64_t num);
+SetElem *NewEmpty(void);
+SetElem *Union(SetElem **setA, SetElem **setB);
+SetElem *Difference(SetElem **setA, SetElem **setB);
+SetElem *SymmetricDifference(SetElem **setA, SetElem **setB);
+SetElem *Intersection(SetElem **setA, SetElem **setB);
+SetElem *Complement(SetElem **setA, int64_t min, int64_t max);
+void Push(SetElem **tail, int64_t num);
+void Pop(SetElem **tail);
+void PrintAll(SetElem **tail);
+int Size(SetElem **tail);
+int GetElem(SetElem **tail, int position);
+int IsExist(SetElem **tail, int64_t num);
+int64_t PowerSetSize(SetElem **tail);
+>>>>>>> local
