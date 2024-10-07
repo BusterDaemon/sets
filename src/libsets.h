@@ -40,3 +40,4 @@ void PrintAll(SetElem **tail);
 int Size(SetElem **tail);
 int GetElem(SetElem **tail, int position);
 int IsExist(SetElem **tail, int64_t num);
+int64_t PowerSetSize(SetElem **tail);

@@ -86,14 +86,7 @@ void Push(SetElem **tail, int64_t num) {
     return;
   }
   SetElem *new = NULL;
-
-  if (!IsExist(tail, num)) {
-    new = New(num);
-  } else {
-    puts("Этот элемент уже существует");
-    return;
-  }
-
+  new = New(num);
   if (new != NULL) {
   new->next = *tail;
   *tail = new;
@@ -401,4 +394,14 @@ SetElem *SymmetricDifference(SetElem **setA, SetElem **setB) {
   }
 
   return symDiffSet;
+}
+
+/**
+ * @brief Вычисление мощности множества
+ * @author Kadet
+ * @param tail Указатель на множество
+ * @return int64_t Мощность множества (количество элементов)
+ */
+int64_t PowerSetSize(SetElem **tail) {
+  return (int64_t)1 << Size(tail);
 }
